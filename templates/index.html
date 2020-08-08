@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>DASHBOARD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{url_for('static', filename='btn.css')}}" /--> 
+  </head>
+  
+  <body style="background:rgb(34, 34, 34);">
+    <p></p>
+    <h1 style="color:white;text-align:center;">𝙙𝙖𝙨𝙝𝙗𝙤𝙖𝙧𝙙</h1>
+    <p></p>
+        <div class="text-center" style="text-align:center;">
+            <img  style="border-radius:25px;" src="{{ url_for('video_feed') }}">
+        </div>
+      
+        <div class="control">
+            <button id="front" class="bt bt_top"><</button>
+            <button id="back" class="bt bt_bottom">></button>
+            <button id="left" class="bt bt_left"><</button>
+            <button id="right" class="bt bt_right">></button>
+        </div> 
+     
+     <script src="{{url_for('static', filename='jquery.min.js')}}"></script>
+     <script>
+        $(function(){
+            $(".bt").click(function(){
+              $.ajax({
+                url: '/direction',
+                data: {"dir":$(this).attr('id')},
+                type: 'POST',
+                success: function(response){
+                  console.log(response);
+                  
+                },
+                error: function(error){
+                  console.log(error);
+                }
+              });
+            });
+        });
+    </script>
+  </body>
+</html>
+
