@@ -6,6 +6,13 @@
   - flask
   - opencv [can be omitted if using any other library that can can import frames as jpg]
 
+run
+
+```sh
+ 
+ git clone https://github.com/jithinsankar/flask-opencv-stream.git
+```
+
 note the ip address by running ifconfig
 
 ![](https://i.imgur.com/DkfN8HM.png)]
